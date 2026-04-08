@@ -1,8 +1,10 @@
+import Home from "../pages/Home"
+
 function App() {
 
   return (
     <>
-      <h1>Desafio - CDT Software</h1>
+      <Home></Home>
     </>
   )
 }
