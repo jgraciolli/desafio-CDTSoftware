@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --colors-white: #ffffff;
+  --colors-cdtLightBlue: #00c9d2;
+  --colors-cdtButtonHover: #003234;
+  --colors-cdtDarkBlue: #0c0e18;
+  --colors-cdtGray: #939393;
+  --colors-cdtDarkGray: #11131c;
+  --colors-cdtSurface: #0c0e18;
+}
