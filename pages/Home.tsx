@@ -4,6 +4,7 @@ import { User } from "../types/User"
 import SearchBar from "../components/SearchBar"
 import UserList from "../components/UserList"
 import UserModal from "../components/UserModal"
+import Loading from "../components/Loading"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 
@@ -90,9 +91,9 @@ const Home = () => {
             </div>
 
             {loadingUserList ? (              
-                <p>Carregando...</p>
+                <Loading message="Carregando usuários..." />
             ) : loadingUserModal ? (
-                <p>Carregando detalhes do usuário...</p>            
+                <Loading message="Carregando detalhes do usuário..." />            
             ) : error ? (
                 <p>{error}. Tente novamente mais tarde.</p>
             ) : selectedUser ? (
