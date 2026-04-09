@@ -3,27 +3,28 @@ import { fetchUsers } from "../services/api"
 import { User } from "../types/User"
 import SearchBar from "../components/SearchBar"
 import UserList from "../components/UserList"
+import UserModal from "../components/UserModal"
 
 const Home = () => {
     const [users, setUsers] = useState<User[]>([])
     const [filteredUsers, setFilteredUsers] = useState<User[]>([])
-    const [loading, setLoading] = useState(true)
+    const [loadingUserList, setLoadingUserList] = useState(true)
+    const [loadingUserModal, setLoadingUserModal] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const [selectedUser, setSelectedUser] = useState<User | null>(null)
 
     const loadUsers = async () => {
         try {
             const data = await fetchUsers()
 
             setUsers(data)
-            setFilteredUsers(data)
-
-            console.log(data)
+            setFilteredUsers(data)            
         } catch (e) { 
             const errorMessage = (e as Error).message        
             setError(errorMessage)
 
         } finally {
-            setLoading(false)
+            setLoadingUserList(false)
         }
     }
 
@@ -42,9 +43,24 @@ const Home = () => {
         setFilteredUsers(filtered)
     }
 
+    const loadUserModal = (user: User) => {
+        setLoadingUserModal(true)
+
+        setTimeout(() => {
+            try {                            
+                setSelectedUser(user)
+            } catch (e) {
+                const errorMessage = (e as Error).message
+                setError(errorMessage)
+            } finally {
+                setLoadingUserModal(false)
+            }
+        }, 2000) // Simula um atraso de 2 segundos para demonstrar o estado de carregamento do modal do usuário
+    }
+
   useEffect(() => {
 
-    setTimeout(() => loadUsers(), 2000) // Simula um atraso de 2 segundos para demonstrar o estado de carregamento
+    setTimeout(() => loadUsers(), 2000) // Simula um atraso de 2 segundos para demonstrar o estado de carregamento da lista de usuários
   }, [])
 
   return (
@@ -60,12 +76,16 @@ const Home = () => {
         <h1>Lista de usuários</h1>
         <SearchBar onSearch={handleSearch} />
 
-        {loading ? (
+        {loadingUserList ? (              
             <p>Carregando...</p>
+        ) : loadingUserModal ? (
+            <p>Carregando detalhes do usuário...</p>            
         ) : error ? (
             <p>{error}. Tente novamente mais tarde.</p>
-        ) : (             
-            <UserList users={filteredUsers} onSelect={(user) => alert(`Usuário selecionado: ${user.name}`)} />                                                               
+        ) : selectedUser ? (
+            <UserModal user={selectedUser} onClose={() => setSelectedUser(null)} />
+        ) : (                        
+            <UserList users={filteredUsers} onSelect={(user) => loadUserModal(user)} />                             
         )}
     </div>
   )
