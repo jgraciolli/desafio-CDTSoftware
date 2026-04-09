@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar"
 import UserList from "../components/UserList"
 import UserModal from "../components/UserModal"
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 const Home = () => {
     const [users, setUsers] = useState<User[]>([])
@@ -92,6 +93,7 @@ const Home = () => {
                 <UserList users={filteredUsers} onSelect={(user) => loadUserModal(user)} />                             
             )}
         </div>
+        <Footer />
     </>
   )
 }

@@ -9,3 +9,49 @@
   --colors-cdtDarkGray: #11131c;
   --colors-cdtSurface: #0c0e18;
 }
+
+.elementor-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #00c9d2;
+  border-radius: 2px;
+  color: #ffffff;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.elementor-icon:hover {
+  background-color: #00c9d2;
+  color: #0c0e18;
+}
+
+.elementor-screen-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.elementor-icon:hover {
+  background-color: #00c9d2;
+  color: #0c0e18;
+}
+
+.elementor-screen-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
