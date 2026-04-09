@@ -4,6 +4,7 @@ import { User } from "../types/User"
 import SearchBar from "../components/SearchBar"
 import UserList from "../components/UserList"
 import UserModal from "../components/UserModal"
+import Header from "../components/Header"
 
 const Home = () => {
     const [users, setUsers] = useState<User[]>([])
@@ -64,30 +65,34 @@ const Home = () => {
   }, [])
 
   return (
-    <div 
-        style={{ 
-            alignItems: "center", 
-            justifyContent: "center", 
-            flexDirection: "column", 
-            display: "flex", 
-            padding: "20px" 
-        }}>
+    <>
+        <Header />
+    
+        <div 
+            style={{ 
+                alignItems: "center", 
+                justifyContent: "center", 
+                flexDirection: "column", 
+                display: "flex", 
+                padding: "20px" 
+            }}>
 
-        <h1>Lista de usuários</h1>
-        <SearchBar onSearch={handleSearch} />
+            <h1 className="text-3xl font-bold underline">Lista de usuários</h1>
+            <SearchBar onSearch={handleSearch} />
 
-        {loadingUserList ? (              
-            <p>Carregando...</p>
-        ) : loadingUserModal ? (
-            <p>Carregando detalhes do usuário...</p>            
-        ) : error ? (
-            <p>{error}. Tente novamente mais tarde.</p>
-        ) : selectedUser ? (
-            <UserModal user={selectedUser} onClose={() => setSelectedUser(null)} />
-        ) : (                        
-            <UserList users={filteredUsers} onSelect={(user) => loadUserModal(user)} />                             
-        )}
-    </div>
+            {loadingUserList ? (              
+                <p>Carregando...</p>
+            ) : loadingUserModal ? (
+                <p>Carregando detalhes do usuário...</p>            
+            ) : error ? (
+                <p>{error}. Tente novamente mais tarde.</p>
+            ) : selectedUser ? (
+                <UserModal user={selectedUser} onClose={() => setSelectedUser(null)} />
+            ) : (                        
+                <UserList users={filteredUsers} onSelect={(user) => loadUserModal(user)} />                             
+            )}
+        </div>
+    </>
   )
 }
 
