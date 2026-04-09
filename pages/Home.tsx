@@ -78,8 +78,15 @@ const Home = () => {
                 padding: "20px" 
             }}>
 
-            <h1 className="text-3xl font-bold underline">Lista de usuários</h1>
-            <SearchBar onSearch={handleSearch} />
+            <h1 className="text-4xl font-extrabold tracking-tight text-(--colors-cdtDarkBlue) sm:text-5xl">
+                Painel de Usuários CDT
+            </h1>
+            <p className="mt-3 max-w-2xl text-md font-bold text-(--colors-cdtGray)">
+                Encontre e visualize rapidamente os detalhes de cada usuário na plataforma.
+            </p>
+            <div className="mt-8 w-full max-w-xl">
+                <SearchBar onSearch={handleSearch} />
+            </div>
 
             {loadingUserList ? (              
                 <p>Carregando...</p>
