@@ -77,7 +77,8 @@ const Home = () => {
                 flexDirection: "column", 
                 display: "flex", 
                 padding: "20px",
-                marginBottom: "10px" 
+                marginBottom: "10px",
+                backgroundColor: "#f5f5f5" 
             }}>
 
             <h1 className="text-4xl font-extrabold tracking-tight text-(--colors-cdtDarkBlue) sm:text-5xl">
