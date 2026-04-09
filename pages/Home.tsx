@@ -96,7 +96,9 @@ const Home = () => {
             ) : loadingUserModal ? (
                 <Loading message="Carregando detalhes do usuário..." />            
             ) : error ? (
-                <p>{error}. Tente novamente mais tarde.</p>
+                <p className="mt-3 max-w-2xl text-lg font-bold text-(--colors-cdtGray)">
+                    {error}. Tente novamente mais tarde.
+                </p>
             ) : selectedUser ? (
                 <UserModal user={selectedUser} onClose={() => setSelectedUser(null)} />
             ) : (                        
