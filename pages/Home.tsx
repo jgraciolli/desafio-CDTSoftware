@@ -75,7 +75,8 @@ const Home = () => {
                 justifyContent: "center", 
                 flexDirection: "column", 
                 display: "flex", 
-                padding: "20px" 
+                padding: "20px",
+                marginBottom: "10px" 
             }}>
 
             <h1 className="text-4xl font-extrabold tracking-tight text-(--colors-cdtDarkBlue) sm:text-5xl">
@@ -84,7 +85,7 @@ const Home = () => {
             <p className="mt-3 max-w-2xl text-md font-bold text-(--colors-cdtGray)">
                 Encontre e visualize rapidamente os detalhes de cada usuário na plataforma.
             </p>
-            <div className="mt-8 w-full max-w-xl">
+            <div className="mt-8 mb-8 w-full max-w-xl">
                 <SearchBar onSearch={handleSearch} />
             </div>
 

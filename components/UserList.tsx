@@ -9,14 +9,14 @@ const UserList = ({ users, onSelect }: Props) => {
   return (
     <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2">
       {users.length === 0 ? (
-        <div className="rounded-3xl border border-white/10 bg-(--colors-cdtDarkBlue)/80 p-8 text-center text-(--colors-cdtGray)">
+        <div className="col-span-full rounded-2xl border border-white/10 bg-(--colors-cdtDarkBlue)/80 p-8 text-center text-(--colors-cdtGray)">
           Nenhum usuário encontrado. Tente outro nome ou limpar a busca.
         </div>
       ) : (
         users.map(user => (
           <div
             key={user.id}
-            className="rounded-3xl border border-white/10 bg-(--colors-cdtDarkGray)/80 p-6 shadow-lg shadow-black/10 transition hover:-translate-y-1 hover:shadow-xl"
+            className="rounded-2xl border border-white/10 bg-(--colors-cdtDarkGray)/80 p-6 shadow-lg shadow-black/10 transition hover:-translate-y-1 hover:shadow-xl"
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
